@@ -9,6 +9,7 @@ use Illuminate\Console\Command;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
+use Symfony\Component\Console\Attribute\AsCommand;
 
 use function Laravel\Prompts\confirm;
 use function Laravel\Prompts\info;
@@ -16,9 +17,10 @@ use function Laravel\Prompts\spin;
 use function Laravel\Prompts\table;
 use function Laravel\Prompts\warning;
 
+#[AsCommand('shopper:upgrade:fix-zero-decimal-currencies')]
 final class FixZeroDecimalCurrency extends Command
 {
-    protected $signature = 'shopper:fix-zero-decimal-currencies
+    protected $signature = 'shopper:upgrade:fix-zero-decimal-currencies
         {--dry-run : Show what would be changed without modifying data}
         {--force : Skip confirmation prompt}';
 
